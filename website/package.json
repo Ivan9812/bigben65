@@ -1,0 +1,29 @@
+{
+  "name": "bigben-storefront",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"node --watch server/index.js\" \"vite --host 0.0.0.0\"",
+    "build": "vite build && node scripts/export-preview.mjs",
+    "start": "node server/index.js",
+    "db:up": "node scripts/database.mjs",
+    "db:down": "docker compose down",
+    "test": "node --test server/orders.test.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "lucide-react": "^0.468.0",
+    "motion": "^12.23.24",
+    "pg": "^8.16.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "concurrently": "^9.2.1",
+    "vite": "^7.2.2",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}
